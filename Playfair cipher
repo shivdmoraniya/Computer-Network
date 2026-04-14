@@ -1,0 +1,8 @@
+def create_key_table(key):
+    key = key.upper().replace("J", "I")
+    table = []
+
+    # Add key letters
+    for ch in key:
+        if ch not in table and ch.isalpha():
+            table.append(ch)
