@@ -24,5 +24,12 @@ ciphertext = ""
         ciphertext += chr(int(c_matrix[1][0]) + 65)
 
     return ciphertext
+# Decrypt function
+def hill_cipher_2x2_decrypt(ciphertext, key, original_length):
+    key_matrix = np.array(key).reshape(2, 2)
+
+    # Inverse of key matrix
+    key_inverse = inv(key_matrix)
+
 
 
