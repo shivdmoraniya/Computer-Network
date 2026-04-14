@@ -1,0 +1,6 @@
+def rail_fence_cipher(plaintext, rails):
+    # Create empty rails
+    fence = [[] for _ in range(rails)]
+
+    rail = 0
+    direction = 1  # 1 = down, -1 = up
