@@ -10,3 +10,9 @@ def rail_fence_cipher(plaintext, rails):
         fence[rail].append(char)
         rail += direction
 
+ # Fill the fence
+    for char in plaintext:
+        fence[rail].append(char)
+        rail += direction
+
+
