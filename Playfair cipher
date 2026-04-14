@@ -20,3 +20,24 @@ def find_position(matrix, ch):
         for j in range(5):
             if matrix[i][j] == ch:
                 return i, j
+
+def prepare_text(plaintext):
+    plaintext = plaintext.upper().replace(" ", "").replace("J", "I")
+    pairs = []
+    i = 0
+
+    while i < len(plaintext):
+        a = plaintext[i]
+        if i + 1 < len(plaintext):
+            b = plaintext[i + 1]
+            if a != b:
+                pairs.append(a + b)
+                i += 2
+            else:
+                pairs.append(a + "X")
+                i += 1
+        else:
+            pairs.append(a + "X")
+            i += 1
+
+    return pairs
