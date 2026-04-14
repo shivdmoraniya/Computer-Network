@@ -4,3 +4,16 @@ from numpy.linalg import inv
 # Encrypt function
 def hill_cipher_2x2_encrypt(plaintext, key):
     plaintext = plaintext.upper()
+ # Padding if length is odd
+    if len(plaintext) % 2 != 0:
+        plaintext += 'X'
+
+    # Convert plaintext into pairs
+    plaintext_pairs = []
+    for i in range(0, len(plaintext), 2):
+        pair = [ord(plaintext[i]) - 65, ord(plaintext[i + 1]) - 65]
+        plaintext_pairs.append(pair)
+
+    key_matrix = np.array(key).reshape(2, 2)
+
+
