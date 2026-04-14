@@ -15,4 +15,12 @@ def rail_fence_cipher(plaintext, rails):
         fence[rail].append(char)
         rail += direction
 
+   # Read the fence row by row
+    ciphertext = ""
+    for row in fence:
+        for char in row:
+            ciphertext += char
+
+    return ciphertext
+
 
