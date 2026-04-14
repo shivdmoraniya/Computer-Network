@@ -15,5 +15,14 @@ def hill_cipher_2x2_encrypt(plaintext, key):
         plaintext_pairs.append(pair)
 
     key_matrix = np.array(key).reshape(2, 2)
+ciphertext = ""
+    for pair in plaintext_pairs:
+        p_matrix = np.array(pair).reshape(2, 1)
+        c_matrix = np.matmul(key_matrix, p_matrix) % 26
+
+        ciphertext += chr(int(c_matrix[0][0]) + 65)
+        ciphertext += chr(int(c_matrix[1][0]) + 65)
+
+    return ciphertext
 
 
