@@ -27,6 +27,19 @@ ciphertext = ""
 # Decrypt function
 def hill_cipher_2x2_decrypt(ciphertext, key, original_length):
     key_matrix = np.array(key).reshape(2, 2)
+ plaintext = ""
+    for i in range(0, len(ciphertext), 2):
+        pair = [ord(ciphertext[i]) - 65, ord(ciphertext[i + 1]) - 65]
+        c_matrix = np.array(pair).reshape(2, 1)
+
+        p_matrix = np.matmul(key_inverse, c_matrix) % 26
+
+        # Round values to nearest integer
+        p0 = int(round(p_matrix[0][0])) % 26
+        p1 = int(round(p_matrix[1][0])) % 26
+
+        plaintext += chr(p0 + 65)
+        plaintext += chr(p1 + 65)
 
     # Inverse of key matrix
     key_inverse = inv(key_matrix)
