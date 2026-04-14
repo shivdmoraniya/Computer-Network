@@ -27,6 +27,9 @@ ciphertext = ""
 # Decrypt function
 def hill_cipher_2x2_decrypt(ciphertext, key, original_length):
     key_matrix = np.array(key).reshape(2, 2)
+
+# Inverse of key matrix
+    key_inverse = inv(key_matrix)
  plaintext = ""
     for i in range(0, len(ciphertext), 2):
         pair = [ord(ciphertext[i]) - 65, ord(ciphertext[i + 1]) - 65]
@@ -41,8 +44,22 @@ def hill_cipher_2x2_decrypt(ciphertext, key, original_length):
         plaintext += chr(p0 + 65)
         plaintext += chr(p1 + 65)
 
-    # Inverse of key matrix
-    key_inverse = inv(key_matrix)
+    
+ # Remove padding if added
+    return plaintext[:original_length]
+
+
+# Main
+plaintext = "HELLO"
+key = [[3, 4], [2, 3]]
+
+ciphertext = hill_cipher_2x2_encrypt(plaintext, key)
+decrypted_text = hill_cipher_2x2_decrypt(ciphertext, key, len(plaintext))
+
+print("Plaintext:", plaintext)
+print("Key:", key)
+print("Ciphertext:", ciphertext)
+print("Decrypted plaintext:", decrypted_text)
 
 
 
