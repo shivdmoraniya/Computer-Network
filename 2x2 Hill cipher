@@ -1,0 +1,6 @@
+import numpy as np
+from numpy.linalg import inv
+
+# Encrypt function
+def hill_cipher_2x2_encrypt(plaintext, key):
+    plaintext = plaintext.upper()
