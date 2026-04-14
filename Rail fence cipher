@@ -23,4 +23,14 @@ def rail_fence_cipher(plaintext, rails):
 
     return ciphertext
 
+# Main
+plaintext = "HELLO WORLD"
+rails = 3
+
+ciphertext = rail_fence_cipher(plaintext, rails)
+
+print("Plaintext:", plaintext)
+print("Rails:", rails)
+print("Ciphertext:", ciphertext)
+
 
